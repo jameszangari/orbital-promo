@@ -1,5 +1,40 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import "../styles/globals.css";
+
+const sendMetric = ({ name, value }) => {
+  const url = `https://qckm.io?m=${name}&v=${value}&k=${process.env.NEXT_PUBLIC_QUICK_METRICS_API_KEY}`;
+
+  // Use `navigator.sendBeacon()` if available, falling back to `fetch()`.
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon(url);
+  } else {
+    fetch(url, { method: "POST", keepalive: true });
+  }
+};
+
+export function reportWebVitals(metric) {
+  switch (metric.name) {
+    case "FCP":
+      sendMetric(metric);
+      break;
+    case "LCP":
+      sendMetric(metric);
+      break;
+    case "CLS":
+      sendMetric(metric);
+      break;
+    case "FID":
+      sendMetric(metric);
+      break;
+    case "TTFB":
+      sendMetric(metric);
+      break;
+    default:
+      break;
+  }
+}
 
 const title = "Orbital";
 const url = "https://orbital-webapp.vercel.app/";
@@ -8,6 +43,22 @@ const description = "Drexel UXID Senior Project Team";
 const author = "The Orbital Team";
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      ga.pageview(url);
+    };
+    // When the component is mounted, subscribe to router changes
+    // and log those page views
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
   return (
     <>
       <Head>
