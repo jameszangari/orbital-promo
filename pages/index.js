@@ -1,6 +1,7 @@
 import Head from "next/head";
+import MediaQuery from "react-responsive";
 import { Suspense, useRef } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Stars, Sphere, useTexture } from "@react-three/drei";
 import { LayerMaterial, Base, Noise, Depth, Fresnel, Texture } from "lamina";
 import Title from "./components/Title.js";
@@ -8,29 +9,39 @@ import Time from "./components/Time.js";
 import Creators from "./components/Creators.js";
 
 const Planet = () => {
-  // useThree(({ camera }) => {
-  //   // camera.up.set(0, 0, 100);
-  //   if (camera.position) {
-  //     camera.position.set(0, 100, 0);
-  //   }
-  // });
   const ref = useRef();
-  // useFrame(({ clock }) => {
-  //   if (ref.current) {
-  //     ref.current.rotation.y = clock.getElapsedTime() / 1.6;
-  //   }
-  // });
+  useFrame(({ clock }) => {
+    if (ref.current) {
+      ref.current.rotation.y = clock.getElapsedTime() / 1.6;
+    }
+  });
   return (
-    <Sphere ref={ref} scale={2} position={[0, 2, 0]}>
-      <ambientLight intensity={1} />
-      <pointLight position={[100, 100, 100]} />
-      <LayerMaterial>
-        <Base color="#D33CE7" valpha={1} mode="normal" />
-        <Noise colorA="#5B2CCB" colorB="#000000" alpha={1} mode="lighten" />
-        <Texture map={useTexture("/volcanic.png")} alpha={0.75} />
-        <Texture map={useTexture("/clouds.png")} alpha={0.5} />
-      </LayerMaterial>
-    </Sphere>
+    <>
+      <MediaQuery minWidth={640}>
+        <Sphere ref={ref} scale={2} position={[0, 0, 0]}>
+          <ambientLight intensity={1} />
+          <pointLight position={[100, 100, 100]} />
+          <LayerMaterial>
+            <Base color="#D33CE7" valpha={1} mode="normal" />
+            <Noise colorA="#5B2CCB" colorB="#000000" alpha={1} mode="lighten" />
+            <Texture map={useTexture("/volcanic.png")} alpha={0.75} />
+            <Texture map={useTexture("/clouds.png")} alpha={0.5} />
+          </LayerMaterial>
+        </Sphere>
+      </MediaQuery>
+      <MediaQuery maxWidth={641}>
+        <Sphere ref={ref} scale={2} position={[0, 2, 0]}>
+          <ambientLight intensity={1} />
+          <pointLight position={[100, 100, 100]} />
+          <LayerMaterial>
+            <Base color="#D33CE7" valpha={1} mode="normal" />
+            <Noise colorA="#5B2CCB" colorB="#000000" alpha={1} mode="lighten" />
+            <Texture map={useTexture("/volcanic.png")} alpha={0.75} />
+            <Texture map={useTexture("/clouds.png")} alpha={0.5} />
+          </LayerMaterial>
+        </Sphere>
+      </MediaQuery>
+    </>
   );
 };
 
@@ -68,7 +79,7 @@ export default function Home() {
               saturation={0} // Saturation 0-1 (default=0)
               fade={false} // Faded dots (default=false)
             />
-            <OrbitControls enableZoom={false} enablePan={false} />
+            {/* <OrbitControls enableZoom={false} enablePan={false} /> */}
           </Suspense>
         </Canvas>
       </main>
