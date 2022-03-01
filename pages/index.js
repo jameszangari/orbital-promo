@@ -36,7 +36,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <div className='grid grid-rows-4 h-screen w-screen sm:grid-cols-2 sm:grid-rows-3 max-w-6xl mx-auto my-0'>
+        <div className='absolute top-0 left-0 z-10grid grid-rows-4 h-screen w-screen sm:grid-cols-2 sm:grid-rows-3 max-w-6xl mx-auto my-0'>
           <Title/>
           <Time />
           <Creators />
