@@ -2,8 +2,10 @@ import Head from "next/head";
 import { Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Stars, Sphere, useTexture } from "@react-three/drei";
-import Logo from "./components/Logo.js";
 import { LayerMaterial, Base, Noise, Depth, Fresnel, Texture } from "lamina";
+import Title from './components/Title.js'
+import Time from './components/Time.js'
+import Creators from './components/Creators.js'
 
 const Planet = () => {
   const ref = useRef();
@@ -34,7 +36,11 @@ export default function Home() {
       </Head>
 
       <main>
-        <Logo className={"m-auto block pt-4"} />
+        <div className='grid grid-rows-4 h-screen w-screen sm:grid-cols-2 sm:grid-rows-3 max-w-6xl mx-auto my-0'>
+          <Title/>
+          <Time />
+          <Creators />
+        </div>
         <Canvas
           dpr={[1, 2]}
           gl={{ antialias: false }}
@@ -50,7 +56,7 @@ export default function Home() {
             <ambientLight intensity={1} />
             <pointLight position={[100, 100, 100]} />
             <Planet />
-            <Stars fade={true} />
+            <Stars/>
             <OrbitControls enableZoom={false} enablePan={false} />
           </Suspense>
         </Canvas>
