@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Time() {
   return (
-    <div className="relative w-full text-center mb-8">
+    <div className="relative w-full text-center mb-8 flex-none">
       <BackgroundAlt />
       <div className="relative p-4">
         <Link

@@ -2,7 +2,7 @@ import Background from "./Background.js";
 
 export default function Time() {
   return (
-    <div className="relative w-full sm:w-1/2">
+    <div className="relative w-full sm:w-1/2 flex-1">
       <Background />
       <div className="relative p-4">
         <p className="font-krona text-blue-accent uppercase text-sm pb-3 w-full font-normal">

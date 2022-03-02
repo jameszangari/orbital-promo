@@ -17,7 +17,7 @@ export default function Creators() {
   // console.log(click());
 
   return (
-    <div className="relative w-full sm:w-1/2">
+    <div className="relative w-full sm:w-1/2 flex-1">
       <Background />
       <div className="relative p-4 h-4/5 flex flex-col justify-between w-full">
         <p className="font-space text-text-transparent font-medium uppercase text-sm pb-4 tracking-widest w-full">

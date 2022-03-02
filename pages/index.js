@@ -10,11 +10,11 @@ import CTA from "./components/CTA.js";
 
 const Planet = () => {
   const ref = useRef();
-  useFrame(({ clock }) => {
-    if (ref.current) {
-      ref.current.rotation.y = clock.getElapsedTime() / 1.6;
-    }
-  });
+  // useFrame(({ clock }) => {
+  //   if (ref.current) {
+  //     ref.current.rotation.y = clock.getElapsedTime() / 1.6;
+  //   }
+  // });
   return (
     <>
       <MediaQuery minWidth={640}>
@@ -57,7 +57,7 @@ export default function Home() {
           width: "100vw",
           position: "absolute",
           top: 0,
-          zIndex: 0,
+          zIndex: 10,
         }}
       >
         <Suspense fallback={null}>
@@ -70,19 +70,21 @@ export default function Home() {
             saturation={0} // Saturation 0-1 (default=0)
             fade={false} // Faded dots (default=false)
           />
-          {/* <OrbitControls enableZoom={false} enablePan={false} /> */}
+          <OrbitControls
+            enableZoom={false}
+            enablePan={false}
+            autoRotate={true}
+            enableDamping={true}
+          />
         </Suspense>
       </Canvas>
-      <div className="z-10 h-screen w-screen mx-auto">
-        <Title />
-        <div className="flex flex-col absolute bottom-24 w-full sm:flex-row px-4 gap-4">
-          <Time />
-          <Creators />
-        </div>
-        <div className="absolute bottom-0 px-4 w-full">
-          <CTA />
-        </div>
+      <Title />
+      <div className="flex flex-col flex-wrap absolute w-full sm:flex-row px-4 gap-4 bottom-0 z-10">
+        <Time />
+        <Creators />
+        <CTA />
       </div>
+      <div className="absolute flex self-end px-4 w-full"></div>
     </>
   );
 }
