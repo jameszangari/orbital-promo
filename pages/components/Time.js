@@ -15,7 +15,6 @@ export default function Time() {
           5:00pm - 6:30pm
         </p>
       </Container>
-      <Background />
     </Wrapper>
   );
 }

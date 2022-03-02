@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Background from "./Background.js";
 import Link from "./Link.js";
 import Wrapper from "./Wrapper.js";
 import Container from "./Container.js";
@@ -59,7 +58,6 @@ export default function Creators() {
           />
         </div>
       </Container>
-      <Background />
     </Wrapper>
   );
 }
