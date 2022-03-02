@@ -38,7 +38,7 @@ export function reportWebVitals(metric) {
 
 const title = "Orbital";
 const url = "https://orbital-webapp.vercel.app/";
-const image = "/orbital-icon.png";
+const image = "/orbital-cover.jpg";
 const description = "Drexel UXID Senior Project Team";
 const author = "The Orbital Team";
 

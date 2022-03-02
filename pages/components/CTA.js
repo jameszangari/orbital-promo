@@ -23,7 +23,7 @@ export default function Time() {
           passHref
         >
           <a
-            className="font-space text-blue-accent uppercase text-xs font-normal cursor-pointer tracking-widest md:text-sm"
+            className="font-space text-blue-accent uppercase text-xs md:text-sm font-normal cursor-pointer tracking-widest"
             target="_blank"
             rel="noopener noreferrer"
             click={() => {

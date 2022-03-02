@@ -24,8 +24,8 @@ const Planet = () => {
           <LayerMaterial>
             <Base color="#D33CE7" valpha={1} mode="normal" />
             <Noise colorA="#5B2CCB" colorB="#000000" alpha={1} mode="lighten" />
-            <Texture map={useTexture("/volcanic.png")} alpha={0.75} />
-            <Texture map={useTexture("/clouds.png")} alpha={0.5} />
+            <Texture map={useTexture("/img/volcanic.png")} alpha={0.75} />
+            <Texture map={useTexture("/img/clouds.png")} alpha={0.5} />
           </LayerMaterial>
         </Sphere>
       </MediaQuery>
@@ -36,8 +36,8 @@ const Planet = () => {
           <LayerMaterial>
             <Base color="#D33CE7" valpha={1} mode="normal" />
             <Noise colorA="#5B2CCB" colorB="#000000" alpha={1} mode="lighten" />
-            <Texture map={useTexture("/volcanic.png")} alpha={0.75} />
-            <Texture map={useTexture("/clouds.png")} alpha={0.5} />
+            <Texture map={useTexture("/img/volcanic.png")} alpha={0.75} />
+            <Texture map={useTexture("/img/clouds.png")} alpha={0.5} />
           </LayerMaterial>
         </Sphere>
       </MediaQuery>
