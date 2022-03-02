@@ -1,11 +1,10 @@
 import Background from "./Background.js";
-import Wrapper from "./Wrapper.js";
-import Container from "./Container.js";
 
 export default function Time() {
   return (
-    <Wrapper className="row-start-3 sm:col-start-1">
-      <Container>
+    <div className="relative w-full sm:w-1/2">
+      <Background />
+      <div className="relative p-4">
         <p className="font-krona text-blue-accent uppercase text-sm pb-3 w-full font-normal">
           one night only
         </p>
@@ -14,7 +13,7 @@ export default function Time() {
           urbn center Lobby<br></br>
           5:00pm - 6:30pm
         </p>
-      </Container>
-    </Wrapper>
+      </div>
+    </div>
   );
 }

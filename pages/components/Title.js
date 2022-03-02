@@ -1,9 +1,9 @@
 import React from "react";
-import Logo from "./Logo.js";
+import Logo from "../icons/Logo.js";
 
-export default function Title({ className }) {
+export default function Title() {
   return (
-    <div className="w-full flex flex-col items-center justify-center sm:col-span-2">
+    <div className="w-full flex flex-col items-center justify-center sm:col-span-2 mt-8">
       <div className="flex items-center w-full justify-center pb-2">
         <Logo />
       </div>

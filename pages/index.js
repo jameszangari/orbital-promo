@@ -1,4 +1,3 @@
-import Head from "next/head";
 import MediaQuery from "react-responsive";
 import { Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
@@ -7,6 +6,7 @@ import { LayerMaterial, Base, Noise, Depth, Fresnel, Texture } from "lamina";
 import Title from "./components/Title.js";
 import Time from "./components/Time.js";
 import Creators from "./components/Creators.js";
+import CTA from "./components/CTA.js";
 
 const Planet = () => {
   const ref = useRef();
@@ -48,41 +48,41 @@ const Planet = () => {
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Orbital: UXID Senior Project</title>
-      </Head>
-
-      <main>
-        <div className="z-10 grid grid-rows-4 h-screen w-screen sm:grid-cols-2 sm:grid-rows-3 max-w-6xl mx-auto my-0">
-          <Title />
+      <Canvas
+        dpr={[1, 2]}
+        gl={{ antialias: false }}
+        camera={{ fov: 50, position: [0, 0, 20] }}
+        style={{
+          height: "100vh",
+          width: "100vw",
+          position: "absolute",
+          top: 0,
+          zIndex: 0,
+        }}
+      >
+        <Suspense fallback={null}>
+          <Planet />
+          <Stars
+            radius={100} // Radius of the inner sphere (default=100)
+            depth={50} // Depth of area where stars should fit (default=50)
+            count={5000} // Amount of stars (default=5000)
+            factor={4} // Size factor (default=4)
+            saturation={0} // Saturation 0-1 (default=0)
+            fade={false} // Faded dots (default=false)
+          />
+          {/* <OrbitControls enableZoom={false} enablePan={false} /> */}
+        </Suspense>
+      </Canvas>
+      <div className="z-10 h-screen w-screen mx-auto">
+        <Title />
+        <div className="flex flex-col absolute bottom-24 w-full sm:flex-row px-4 gap-4">
           <Time />
           <Creators />
         </div>
-        <Canvas
-          dpr={[1, 2]}
-          gl={{ antialias: false }}
-          camera={{ fov: 50, position: [0, 0, 20] }}
-          style={{
-            height: "100vh",
-            width: "100vw",
-            position: "absolute",
-            top: 0,
-          }}
-        >
-          <Suspense fallback={null}>
-            <Planet />
-            <Stars
-              radius={100} // Radius of the inner sphere (default=100)
-              depth={50} // Depth of area where stars should fit (default=50)
-              count={5000} // Amount of stars (default=5000)
-              factor={4} // Size factor (default=4)
-              saturation={0} // Saturation 0-1 (default=0)
-              fade={false} // Faded dots (default=false)
-            />
-            {/* <OrbitControls enableZoom={false} enablePan={false} /> */}
-          </Suspense>
-        </Canvas>
-      </main>
+        <div className="absolute bottom-0 px-4 w-full">
+          <CTA />
+        </div>
+      </div>
     </>
   );
 }
