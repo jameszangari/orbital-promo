@@ -1,7 +1,17 @@
+import { useState } from "react";
 import BackgroundAlt from "./BackgroundAlt.js";
 import Link from "next/link";
 
 export default function Time() {
+  const [cta, setCTA] = useState("");
+
+  const click = () => {
+    ga.event({
+      category: "CTA Links",
+      action: "click",
+      label: cta,
+    });
+  };
   return (
     <div className="relative w-full text-center mb-8 flex-none">
       <BackgroundAlt />
@@ -16,6 +26,10 @@ export default function Time() {
             className="font-space text-blue-accent uppercase text-xs font-normal cursor-pointer tracking-widest md:text-sm"
             target="_blank"
             rel="noopener noreferrer"
+            click={() => {
+              setCTA("GoFundMe");
+              click();
+            }}
           >
             help us put this installation on
           </a>
