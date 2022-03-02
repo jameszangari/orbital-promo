@@ -18,7 +18,7 @@ const Planet = () => {
   return (
     <>
       <MediaQuery minWidth={640}>
-        <Sphere ref={ref} scale={2} position={[0, 0, 0]}>
+        <Sphere ref={ref} scale={2} position={[0, 1, 0]}>
           <ambientLight intensity={1} />
           <pointLight position={[100, 100, 100]} />
           <LayerMaterial>
@@ -30,7 +30,7 @@ const Planet = () => {
         </Sphere>
       </MediaQuery>
       <MediaQuery maxWidth={641}>
-        <Sphere ref={ref} scale={2} position={[0, 2, 0]}>
+        <Sphere ref={ref} scale={2} position={[0, 2.5, 0]}>
           <ambientLight intensity={1} />
           <pointLight position={[100, 100, 100]} />
           <LayerMaterial>
