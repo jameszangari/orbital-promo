@@ -39,7 +39,8 @@ export function reportWebVitals(metric) {
 const title = "Orbital";
 const url = "https://orbital-webapp.vercel.app/";
 const image = "/orbital-cover.jpg";
-const description = "Drexel UXID Senior Project Team";
+const description =
+  "Orbital is a covid-safe interactive art installation allowing for the collaboration of visitors to manipulate and create a one-of-a-kind experience in real time.";
 const author = "The Orbital Team";
 
 function MyApp({ Component, pageProps }) {
