@@ -3,7 +3,7 @@ import Background from "./Background.js";
 import Link from "./Link.js";
 import Wrapper from "./Wrapper.js";
 import Container from "./Container.js";
-import * as ga from "../lib/ga";
+import * as ga from "../../lib/ga";
 
 export default function Creators() {
   const [query, setQuery] = useState("");
@@ -15,8 +15,8 @@ export default function Creators() {
       label: query,
     });
   };
-  console.log(query);
-  console.log(click());
+  // console.log(query);
+  // console.log(click());
 
   return (
     <Wrapper className="row-start-4 sm:col-start-2">
