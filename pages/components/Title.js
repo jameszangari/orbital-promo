@@ -3,7 +3,7 @@ import Logo from "../icons/Logo.js";
 
 export default function Title() {
   return (
-    <div className="absolute top-0 z-10 w-full flex flex-col items-center justify-center sm:col-span-2 mt-8">
+    <div className="absolute top-0 z-10 w-full flex flex-col items-center justify-center mt-2 sm:col-span-2 sm:mt-8">
       <div className="flex items-center w-full justify-center pb-2">
         <Logo />
       </div>

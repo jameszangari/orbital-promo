@@ -79,7 +79,7 @@ export default function Home() {
         </Suspense>
       </Canvas>
       <Title />
-      <div className="flex flex-col flex-wrap absolute w-full sm:flex-row px-4 gap-4 bottom-0 z-10">
+      <div className="absolute flex flex-col flex-wrap w-full sm:flex-row px-4 gap-4 bottom-0 z-10">
         <Time />
         <Creators />
         <CTA />
