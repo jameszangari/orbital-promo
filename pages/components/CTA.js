@@ -1,4 +1,5 @@
 import { useState } from "react";
+import * as gtag from "./../lib/gtag";
 import BackgroundAlt from "./BackgroundAlt.js";
 import Link from "next/link";
 
@@ -6,7 +7,7 @@ export default function Time() {
   const [cta, setCTA] = useState("");
 
   const click = () => {
-    ga.event({
+    gtag.event({
       category: "CTA Links",
       action: "click",
       label: cta,
@@ -26,7 +27,7 @@ export default function Time() {
             className="font-space text-blue-accent uppercase text-xs md:text-sm font-normal cursor-pointer tracking-widest"
             target="_blank"
             rel="noopener noreferrer"
-            click={() => {
+            onClick={() => {
               setCTA("GoFundMe");
               click();
             }}

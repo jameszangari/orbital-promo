@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Link from "./Link.js";
 import Background from "./../components/Background";
-import * as ga from "./../../lib/ga";
+import * as gtag from "./../lib/gtag";
 
 export default function Creators() {
   const [query, setQuery] = useState("");
 
   const click = () => {
-    ga.event({
+    gtag.event({
       category: "CTA Links",
       action: "click",
       label: query,
