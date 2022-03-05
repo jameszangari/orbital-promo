@@ -3,7 +3,7 @@ import Script from "next/script";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import "./../styles/globals.css";
-import * as gtag from "./lib/gtag";
+import * as gtag from "../lib/gtag";
 
 const sendMetric = ({ name, value }) => {
   const url = `https://qckm.io?m=${name}&v=${value}&k=${process.env.NEXT_PUBLIC_QUICK_METRICS_API_KEY}`;

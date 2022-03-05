@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Link from "./Link.js";
 import Background from "./../components/Background";
-import * as gtag from "./../lib/gtag";
+import * as gtag from "../../lib/gtag";
 
 export default function Creators() {
   const [query, setQuery] = useState("");

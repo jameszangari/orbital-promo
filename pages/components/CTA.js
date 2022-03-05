@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as gtag from "./../lib/gtag";
+import * as gtag from "../../lib/gtag";
 import BackgroundAlt from "./BackgroundAlt.js";
 import Link from "next/link";
 
