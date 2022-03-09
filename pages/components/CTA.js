@@ -14,7 +14,7 @@ export default function Time() {
     });
   };
   return (
-    <div className="relative w-full text-center mb-8 flex-none">
+    <div className="relative w-full text-center flex-none">
       <BackgroundAlt />
       <div className="relative p-2">
         <Link
