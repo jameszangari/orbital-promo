@@ -1,6 +1,6 @@
 import Link from "next/link";
 import MediaQuery from "react-responsive";
-import { Suspense, useRef } from "react";
+import { Suspense, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Stars, Sphere, useTexture } from "@react-three/drei";
 import { LayerMaterial, Base, Noise, Depth, Fresnel, Texture } from "lamina";
@@ -10,14 +10,10 @@ import Creators from "./components/Creators.js";
 import CTA from "./components/CTA.js";
 import Instagram from "./icons/Instagram.js";
 import BackgroundAlt from "./components/BackgroundAlt.js";
+import * as gtag from "./../lib/gtag";
 
 const Planet = () => {
   const ref = useRef();
-  // useFrame(({ clock }) => {
-  //   if (ref.current) {
-  //     ref.current.rotation.y = clock.getElapsedTime() / 1.6;
-  //   }
-  // });
   return (
     <>
       <MediaQuery minWidth={640}>
@@ -49,6 +45,15 @@ const Planet = () => {
 };
 
 export default function Home() {
+  const [insta, setInsta] = useState("");
+
+  const click = () => {
+    gtag.event({
+      category: "Instagram",
+      action: "click",
+      label: insta,
+    });
+  };
   return (
     <>
       <Canvas
@@ -91,6 +96,10 @@ export default function Home() {
             className="relative w-full flex items-center justify-center px-4 py-2 text-xs md:text-sm text-text hover:text-blue-accent uppercase font-space tracking-widest mb-4"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              setInsta("Instagram");
+              click();
+            }}
           >
             Follow us <Instagram className={"ml-2"} /> <BackgroundAlt />
           </a>
